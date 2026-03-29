@@ -152,10 +152,9 @@ footer{
 }
 
 @media (max-width: 768px) {
-
     .menu {
         display: block;
-        position: relative; /* 🔥 tira o absolute */
+        position: relative;
         font-size: 30px;
         margin-left: 15px;
     }
@@ -164,129 +163,66 @@ footer{
         display: none;
     }
 
-    /* REMOVE isso daqui */
     nav ul {
-        flex-direction: row; /* mantém normal */
-    }
-    .item, .servico-detalhes {
-        min-height: 220px; /* Garante altura para os textos absolutos */
-        padding-bottom: 20px;
+        flex-direction: row;
     }
 
-    /* 2. Ajuste da Imagem para não sobrepor o texto no celular */
+    .item, .servico-detalhes {
+        min-height: 200px; /* Altura fixa mínima para manter o padrão */
+        position: relative;
+        padding: 10px;
+    }
+
+    /* 2. Imagem */
     .item img, .servico-detalhes img {
-        width: 100px; /* Diminui a imagem no celular */
+        width: 100px;
         height: 100px;
         object-fit: cover;
     }
 
-    /* 3. Ajuste do Título (h2/h3) */
-    .servico-detalhes h2, .detalhes h3 {
-        font-size: 1.1rem !important; /* Diminui a fonte */
-        top: 10px !important; /* Mantém no topo */
-        width: 60% !important; /* Ocupa menos largura lateral */
-        left: 55% !important; /* Ajusta a posição horizontal */
+    /* 3. Título e Textos (Ajuste de largura para não bater no preço) */
+    .servico-detalhes h2, .detalhes h3,
+    .servico-detalhes #tagp, .servico-detalhes p, 
+    .descricao, .time {
+        width: 45% !important; /* Reduzi para 45% para dar "respiro" ao preço na direita */
+        left: 52% !important;
+        font-size: 0.9rem !important;
     }
 
-    /* 4. Ajuste da Descrição e Observações (#tagp/p) */
-    .servico-detalhes #tagp, .servico-detalhes p, .descricao, .time {
-        font-size: 0.9rem !important; /* Fonte menor para caber */
-        width: 60% !important; /* Largura controlada */
-        left: 55% !important; /* Alinhado com o título */
-        text-align: left !important; /* Alinhamento à esquerda fica melhor com absolute */
-    }
+    .servico-detalhes h2, .detalhes h3 { top: 10px !important; font-size: 1rem !important; }
+    .servico-detalhes #tagp, .descricao { top: 40px !important; }
+    .servico-detalhes p, .time { top: 75px !important; }
 
-    /* Ajustes específicos de posição vertical para não encavalar */
-    .servico-detalhes #tagp, .descricao {
-        top: 45px !important;
-    }
-
-    .servico-detalhes p, .time {
-        top: 85px !important;
-    }
-
-    /* 5. Ajuste do Preço e Botão (Seção .preco) */
-    .preco h2 {
-        font-size: 1.1rem !important;
-        top: -280px !important; /* Sobe um pouco o preço */
-        right: 7% !important;
-    }
-
-    .preco button {
-        font-size: 0.8rem !important;
-        padding: 0.4rem 0.rem !important; /* Botão menor */
-        top: -250px !important; /* Logo abaixo do preço */
-        right: 4% !important;
-    }
-}
-@media (max-width: 380px) {
-
-    .menu {
-        display: block;
-        position: relative; /* 🔥 tira o absolute */
-        font-size: 30px;
-        margin-left: 15px;
-    }
+    /* 4. Preço e Botão (TRAVADOS PELO TOPO) */
+    /* Em vez de usar -280px, usamos valores positivos baixos */
     
-    .menu-desktop {
-        display: none;
-    }
-
-    /* REMOVE isso daqui */
-    nav ul {
-        flex-direction: row; /* mantém normal */
-    }
-    .item, .servico-detalhes {
-        min-height: 220px; /* Garante altura para os textos absolutos */
-        padding-bottom: 20px;
-    }
-
-    /* 2. Ajuste da Imagem para não sobrepor o texto no celular */
-    .item img, .servico-detalhes img {
-        width: 100px; /* Diminui a imagem no celular */
-        height: 100px;
-        object-fit: cover;
-    }
-
-    /* 3. Ajuste do Título (h2/h3) */
-    .servico-detalhes h2, .detalhes h3 {
-        font-size: 1.1rem !important; /* Diminui a fonte */
-        top: 10px !important; /* Mantém no topo */
-        width: 60% !important; /* Ocupa menos largura lateral */
-        left: 55% !important; /* Ajusta a posição horizontal */
-    }
-
-    /* 4. Ajuste da Descrição e Observações (#tagp/p) */
-    .servico-detalhes #tagp, .servico-detalhes p, .descricao, .time {
-        font-size: 0.9rem !important; /* Fonte menor para caber */
-        width: 60% !important; /* Largura controlada */
-        left: 55% !important; /* Alinhado com o título */
-        text-align: left !important; /* Alinhamento à esquerda fica melhor com absolute */
-    }
-
-    /* Ajustes específicos de posição vertical para não encavalar */
-    .servico-detalhes #tagp, .descricao {
-        top: 45px !important;
-    }
-
-    .servico-detalhes p, .time {
-        top: 85px !important;
-    }
-
-    /* 5. Ajuste do Preço e Botão (Seção .preco) */
     .preco h2 {
         font-size: 1.1rem !important;
-        top: -280px !important; /* Sobe um pouco o preço */
-        right: 7% !important;
+        position: absolute !important;
+        top: 15px !important; /* Distância fixa do topo do card */
+        right: 15px !important; /* Distância fixa da direita */
+        margin: 0;
     }
 
     .preco button {
         font-size: 0.8rem !important;
-        padding: 0.4rem 0.rem !important; /* Botão menor */
-        top: -250px !important; /* Logo abaixo do preço */
-        right: 4% !important;
+        padding: 6px 12px !important;
+        position: absolute !important;
+        top: 50px !important; /* Distância fixa do topo, logo abaixo do preço */
+        right: 10px !important;
     }
 }
+
+/* 5. Ajuste Extra para celulares muito pequenos (iPhone SE / 320px) */
+@media (max-width: 360px) {
+    .servico-detalhes h2, .servico-detalhes p {
+        font-size: 0.8rem !important;
+        left: 50% !important;
+    }
+    .preco h2 { font-size: 0.9rem !important; }
+    .preco button { padding: 4px 8px !important; top: 45px !important; }
+}
+
 .lista-agenda {
     /* Layout */
     display: flex;
