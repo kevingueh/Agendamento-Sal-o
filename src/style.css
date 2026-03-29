@@ -219,7 +219,37 @@ footer{
         right: 4% !important;
     }
 }
+@media (max-width: 400px) {
+    .item, .servico-detalhes {
+        min-height: 280px; /* Aumenta a altura da caixa porque o texto vai esticar */
+    }
 
+    .item img, .servico-detalhes img {
+        width: 80px; /* Diminui a imagem para dar mais espaço ao texto */
+        height: 80px;
+    }
+
+    /* Movemos o texto mais para a esquerda para aproveitar o espaço da imagem menor */
+    .servico-detalhes h2, .servico-detalhes p, .servico-detalhes #tagp {
+        margin-left: 90px !important; 
+        width: calc(100% - 100px) !important;
+        font-size: 0.85rem !important; /* Diminui a letra para não encavalar */
+    }
+
+    /* Ajuste milimétrico do Preço e Botão para não sumirem */
+    .preco h2 {
+        font-size: 1rem !important;
+        top: 15px !important; 
+        right: 10px !important;
+    }
+
+    .preco button {
+        font-size: 0.75rem !important;
+        padding: 0.3rem 0.6rem !important;
+        top: 45px !important;
+        right: 8px !important;
+    }
+}
 .lista-agenda {
     /* Layout */
     display: flex;
