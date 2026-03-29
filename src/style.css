@@ -275,6 +275,81 @@ footer{
         padding: 12px;
         font-size: 0.9rem;
     }
+    .item {
+        display: block !important;
+        min-height: 180px !important; /* Altura para não encavalar */
+        position: relative !important;
+        margin-bottom: 15px;
+    }
+
+    .item img {
+        width: 100px !important;
+        height: 100px !important;
+        position: absolute !important;
+        top: 10px !important;
+        left: 10px !important;
+    }
+
+    /* Reposicionando os textos da HOME para não ficarem no centro e baterem no preço */
+    .detalhes h3, .descricao, .time {
+        position: absolute !important;
+        left: 120px !important; /* Alinha ao lado da imagem */
+        transform: none !important; /* Tira o translateX que centralizava */
+        text-align: left !important;
+        width: calc(100% - 220px) !important; /* Dá espaço para o preço na direita */
+    }
+
+    .detalhes h3 { top: 15px !important; font-size: 1rem !important; }
+    .descricao { top: 45px !important; font-size: 0.85rem !important; }
+    .time { top: 75px !important; font-size: 0.85rem !important; }
+
+    /* Ajuste do Preço na HOME (Valores positivos para não bugar) */
+    .preco h2 {
+        position: absolute !important;
+        top: 15px !important; 
+        right: 10px !important;
+        font-size: 1.1rem !important;
+    }
+
+    .preco button {
+        position: absolute !important;
+        top: 45px !important;
+        right: 10px !important;
+        padding: 5px 10px !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* --- AJUSTE DA PÁGINA AGENDAR (Mantendo o que estava bom) --- */
+    /* Usamos a classe específica que o JS gera para não confundir */
+    main > .servico-detalhes {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        height: auto !important;
+        padding: 20px !important;
+    }
+
+    main > .servico-detalhes img {
+        position: static !important;
+        margin-bottom: 15px !important;
+    }
+
+    
+
+    .servico-informacoes h2, 
+    .servico-informacoes p, 
+    .servico-informacoes #tagp {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        margin-bottom: 5px !important;
+    }
+
+    .data-hora {
+        position: static !important;
+        width: 100% !important;
+        margin-top: 20px !important;
+    }
 }
 
 /* 5. Ajuste Extra para celulares muito pequenos (iPhone SE / 320px) */

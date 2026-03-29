@@ -1,5 +1,22 @@
 let diaSelecionado = null;
 let botaoSelecionado = null;
+let btnMenu = document.getElementById("btn-menu");
+let menu = document.getElementById("menu-lateral");
+
+if (btnMenu && menu) {
+    btnMenu.addEventListener("click", () => {
+        menu.classList.toggle("ativo");
+    });
+
+    document.addEventListener("click", (event) => {
+        if (
+            !menu.contains(event.target) &&
+            !btnMenu.contains(event.target)
+        ) {
+            menu.classList.remove("ativo");
+        }
+    });
+}
 
 // Busca dados iniciais
 let id = localStorage.getItem("servicoSelecionado");
