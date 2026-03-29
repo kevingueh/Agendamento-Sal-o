@@ -219,7 +219,7 @@ footer{
         right: 4% !important;
     }
 }
-@media (max-width: 400px) {
+@media (max-width: 380px) {
 
     .menu {
         display: block;
