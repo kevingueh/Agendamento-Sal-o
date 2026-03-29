@@ -152,64 +152,128 @@ footer{
 }
 
 @media (max-width: 768px) {
-    .menu {
-        display: block;
-        position: relative;
-        font-size: 30px;
-        margin-left: 15px;
+    .header {
+        padding: 10px;
     }
     
     .menu-desktop {
-        display: none;
+        display: none; /* Esconde o menu de texto */
     }
 
-    nav ul {
-        flex-direction: row;
+    /* O Botão Hambúrguer: Fixo e visível */
+    .menu {
+        display: block !important;
+        
+        top: 15px;
+        left: 15px;
+        z-index: 5000; /* No topo de tudo */
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
     }
 
-    .item, .servico-detalhes {
-        min-height: 200px; /* Altura fixa mínima para manter o padrão */
+    /* Menu Lateral: Abre por cima de tudo */
+    .menu-lateral {
+        position: fixed !important;
+        top: 0;
+        left: -300px; /* Escondido */
+        width: 280px;
+        height: 100%;
+        z-index: 6000;
+        background-color: #111;
+        transition: 0.3s;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    .menu-lateral.ativo {
+        left: 0; /* Mostra ao clicar */
+    }
+   .servico-detalhes {
+        display: flex !important;
+        flex-direction: column !important; /* Imagem -> Texto -> Datas */
+        align-items: center !important; /* Centraliza tudo horizontalmente */
+        height: auto !important; /* Permite que a caixa cresça */
+        min-height: 200px !important;
+        padding: 20px !important;
         position: relative;
-        padding: 10px;
+        background-color: #A6A5A4; /* Mantém sua cor de fundo */
+        border-radius: 10px;
     }
 
-    /* 2. Imagem */
-    .item img, .servico-detalhes img {
-        width: 100px;
-        height: 100px;
+    /* 2. Ajuste da Imagem (Centralizada no topo) */
+    .servico-detalhes img {
+        width: 120px !important; /* Um pouco menor para mobile */
+        height: 120px !important;
         object-fit: cover;
+        position: static !important; /* Removemos o absoluto */
+        margin-bottom: 15px !important; /* Espaço para o texto abaixo */
+        border-radius: 10px;
     }
 
-    /* 3. Título e Textos (Ajuste de largura para não bater no preço) */
-    .servico-detalhes h2, .detalhes h3,
-    .servico-detalhes #tagp, .servico-detalhes p, 
-    .descricao, .time {
-        width: 45% !important; /* Reduzi para 45% para dar "respiro" ao preço na direita */
-        left: 52% !important;
-        font-size: 0.9rem !important;
+    /* 3. Ajuste das Informações de Texto (Empilhadas) */
+    .servico-informacoes {
+        width: 100% !important;
+        text-align: center !important; /* Centraliza o texto */
+        margin-bottom: 20px !important; /* Espaço para o calendário abaixo */
+        position: static !important; /* Removemos o absoluto */
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
     }
 
-    .servico-detalhes h2, .detalhes h3 { top: 10px !important; font-size: 1rem !important; }
-    .servico-detalhes #tagp, .descricao { top: 40px !important; }
-    .servico-detalhes p, .time { top: 75px !important; }
-
-    /* 4. Preço e Botão (TRAVADOS PELO TOPO) */
-    /* Em vez de usar -280px, usamos valores positivos baixos */
-    
-    .preco h2 {
-        font-size: 1.1rem !important;
-        position: absolute !important;
-        top: 15px !important; /* Distância fixa do topo do card */
-        right: 15px !important; /* Distância fixa da direita */
-        margin: 0;
+    /* Removemos posicionamentos absolutos e larguras fixas dos textos */
+    .servico-informacoes h2, 
+    .servico-informacoes p, 
+    .servico-informacoes #tagp {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        left: auto !important;
+        color: #000;
+        font-size: 1rem !important;
     }
 
-    .preco button {
-        font-size: 0.8rem !important;
-        padding: 6px 12px !important;
-        position: absolute !important;
-        top: 50px !important; /* Distância fixa do topo, logo abaixo do preço */
-        right: 10px !important;
+    .servico-informacoes h2 {
+        font-size: 1.2rem !important;
+        font-weight: bold;
+    }
+
+    /* 4. Ajuste do Container de Data e Hora (Abaixo do texto) */
+    .data-hora {
+        width: 100% !important;
+        position: static !important; /* Removemos o absoluto */
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    /* 5. Ajuste dos Botões de Calendário (Grid Responsivo) */
+    .data, .hora {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center; /* Centraliza os botões */
+        width: 100%;
+    }
+
+    /* Tamanho ideal para cliques no celular */
+    .dia, .hora-btn {
+        flex: 1 1 30%; /* Tenta colocar 3 por linha */
+        min-width: 80px; /* Não deixa espremer demais */
+        padding: 10px;
+        font-size: 0.85rem;
+        border-radius: 5px;
+        border: none;
+    }
+
+    /* Botão de Limpar (Ocupa a largura toda) */
+    #btn-limpar {
+        width: 100% !important;
+        margin-top: 15px;
+        padding: 12px;
+        font-size: 0.9rem;
     }
 }
 
