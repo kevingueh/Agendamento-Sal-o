@@ -1,0 +1,404 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f4f6fb;
+    --card: #ffffff;
+    --text: #1c1e21;
+    --muted: #0f0f0f;
+    --primary: #2563eb;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.4;
+}
+
+.header{
+    background-color:#0D0504;
+    color: white;
+    padding: 18px;
+    text-align: center;
+}
+
+.header img {
+    width: 100px;
+    height: auto;
+   
+}
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
+    
+    
+   
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+/* Responsivo */
+a {
+  text-decoration: none; /* remove o sublinhado */
+  color: inherit; /* usa a cor do elemento pai */
+}
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    nav li {
+        text-align: center;
+    }
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: #262523;
+    color: white;
+    line-height: 1.4;
+    font-size: 16px;
+}
+main{
+    padding: 20px;
+    max-width: 940px;
+    margin: 0 auto;
+}
+footer{
+    background-color: #403F3D;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+.menu {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+   
+}
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -350px;
+    width: 350px;
+    height: 100%;
+    z-index: 2000;
+    background-color: #111;
+    color: white;
+    padding-top: 60px;
+    transition: 0.3s;
+}
+.menu-lateral.ativo {
+    left: 0;
+}
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral ul li {
+    padding: 15px;
+}
+
+.menu-lateral ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* quando estiver aberto */
+.menu-lateral.ativo {
+    left: 0;
+}
+.menu-desktop {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+
+    .menu {
+        display: block;
+        position: relative; /* 🔥 tira o absolute */
+        font-size: 30px;
+        margin-left: 15px;
+    }
+    
+    .menu-desktop {
+        display: none;
+    }
+
+    /* REMOVE isso daqui */
+    nav ul {
+        flex-direction: row; /* mantém normal */
+    }
+}
+.lista-agenda {
+    /* Layout */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px; /* Espaço interno para o conteúdo não encostar na borda */
+    
+    /* Posicionamento */
+    position: relative; /* Ou 'absolute' se quiser usar o top/left rigorosamente */
+    top: 50px;
+    margin: 0 auto; /* Centraliza a caixa horizontalmente se for relativa */
+    max-width: 1200px; /* Limita a largura da "caixa" */
+    
+    /* Estética da Caixa */
+    background-color: #ffffff;
+    border: 1px solid #ddd; /* Uma borda leve */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+}
+.item{
+    background-color: #A6A5A4;
+    padding: 0px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: var(--muted);
+    position: relative;
+}
+.item img{
+    display: flex;
+    top: 0;
+    padding-top: 0px;
+    border-radius: 10px;
+    left: 5px;
+    box-shadow: #0D0504;
+}
+.preco {
+    position: relative;
+    min-height: 1%; /* espaço para h2 e botão */
+}
+
+.preco h2 {
+    position: absolute;
+    top: -150px;
+    right: 0;
+    margin: 0;
+    right: 2%;
+    font-size: 1.35rem;
+    color: #111827;
+}
+
+.preco button {
+    position: absolute;
+    top: -120px; /* abaixo do h2 */
+    right: 1%;
+    border: 0;
+    border-radius: 8px;
+    padding: 0.55rem 0.95rem;
+    background-color: rgb(31, 30, 30);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.detalhes h3{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.preco button:hover {
+    background-color: green;
+}
+.descricao{
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.time{
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* Container que ocupa a tela toda (fundo escuro) */
+.modal-container {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000; /* Garante que fica acima do nav */
+    justify-content: center;
+    align-items: center;
+}
+
+/* O quadrado branco centralizado */
+.modal-quadrado {
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+/* Botão de fechar */
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* Classe que o JS vai usar para mostrar */
+.modal-container.ativo {
+    display: flex;
+}
+.servico-detalhes{
+   background-color: #A6A5A4;
+    padding: 0px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: var(--muted);
+    position: relative;
+}
+
+.servico-detalhes img {
+    display: flex;
+    top: 0;
+    padding-top: 0px;
+    border-radius: 10px;
+    left: 5px;
+    box-shadow: #0D0504;
+}
+.servico-detalhes h2 {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}   
+.servico-detalhes #tagp {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+}
+.servico-detalhes p {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+}
+.preco-p{
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    transform: translateX(-50%);
+}
+.data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.dia {
+    padding: 10px;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dia:hover {
+    background: #ccc;
+}
+
+.hora {
+    margin-top: 15px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.hora-btn {
+    padding: 8px;
+    margin: 5px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.hora-btn.agendado {
+    background: #e53935;
+}
+
+
+.hora-btn:hover {
+    background: #45a049;
+}
+.dia.selecionado {
+    background: green !important;
+    color: white;
+}
+
+.dia.agendado {
+    background: red !important;
+    color: white;
+}
+#btn-limpar {
+    margin-top: 10px;
+    padding: 10px;
+    background: #555;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
