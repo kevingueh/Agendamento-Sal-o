@@ -123,7 +123,7 @@ function salvarAgendamento(data, hora) {
 
 
 function enviarMensagemWhatsApp(d) {
-    const tel = "5511982799240";
+    const tel = "55umero";
     const msg = ` *NOVO AGENDAMENTO*\n\n*Serviço:* ${d.servico} *Data:* ${d.dia}/${d.mes}/${d.ano} *Hora:* ${d.hora}${d.observacao}`;
     window.open(`https://wa.me/${tel}?text=${encodeURIComponent(msg)}`, '_blank');
 }
